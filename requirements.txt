@@ -15,4 +15,3 @@ gunicorn==22.0.0
 # Optional: For Jupyter Notebook (model training)
 jupyter==1.0.0
 notebook==7.0.6
-python-3.11.8
