@@ -4,7 +4,7 @@ Flask-Cors==4.0.1
 
 # Deep Learning & Machine Learning
 # UPGRADED: Use a modern, stable version for Python 3.11
-tensorflow==2.17.0
+tensorflow==2.20.0
 numpy==1.26.4 
 
 # Image Processing
