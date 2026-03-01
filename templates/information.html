@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Education - NeuroScan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='healthcare.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>NeuroScan</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="/information" class="nav-link active"><i class="fas fa-book"></i> Learn</a></li>
+                    <li><a href="/prediction" class="nav-link"><i class="fas fa-stethoscope"></i> Scan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Brain Tumor Education Center</h1>
+            <p>Comprehensive information about brain tumors, symptoms, and treatments</p>
+        </div>
+    </section>
+
+    <!-- Global Statistics -->
+    <section class="global-stats">
+        <div class="container">
+            <h2 class="section-title">Global Brain Tumor Statistics</h2>
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-value">27.5</div>
+                    <div class="stat-unit">million</div>
+                    <div class="stat-desc">People affected worldwide annually</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">308,102</div>
+                    <div class="stat-unit">deaths</div>
+                    <div class="stat-desc">Annual brain tumor deaths globally</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5.8</div>
+                    <div class="stat-unit">years</div>
+                    <div class="stat-desc">Average life expectancy after diagnosis</div>
+                </div>
+            </div>
+
+            <!-- Model KPIs Section -->
+            <div class="model-kpis">
+                <h3 class="kpi-title">Model Performance KPIs</h3>
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">92.97%</div>
+                            <div class="kpi-label">Accuracy Rate (92.97%)</div>
+                            <div class="kpi-desc">Validated on extensive medical datasets</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">&lt; 2s</div>
+                            <div class="kpi-label">Processing Time</div>
+                            <div class="kpi-desc">Average analysis time per image</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">4</div>
+                            <div class="kpi-label">Tumor Types</div>
+                            <div class="kpi-desc">Glioma, Meningioma, Pituitary, No Tumor</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">100%</div>
+                            <div class="kpi-label">Privacy</div>
+                            <div class="kpi-desc">All processing done locally</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Country-wise Statistics -->
+    <section class="country-stats">
+        <div class="container">
+            <h2 class="section-title">Brain Tumor Incidence by Country</h2>
+            <p class="section-desc">Age-standardized incidence rates per 100,000 people (2023 data)</p>
+
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="country-flag">🇺🇸</div>
+                    <div class="country-info">
+                        <h3>United States</h3>
+                        <div class="incidence-rate">23.8</div>
+                        <div class="rank">#1 Highest</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇨🇦</div>
+                    <div class="country-info">
+                        <h3>Canada</h3>
+                        <div class="incidence-rate">21.4</div>
+                        <div class="rank">#2</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇦🇺</div>
+                    <div class="country-info">
+                        <h3>Australia</h3>
+                        <div class="incidence-rate">20.1</div>
+                        <div class="rank">#3</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇬🇧</div>
+                    <div class="country-info">
+                        <h3>United Kingdom</h3>
+                        <div class="incidence-rate">16.8</div>
+                        <div class="rank">#4</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇩🇪</div>
+                    <div class="country-info">
+                        <h3>Germany</h3>
+                        <div class="incidence-rate">15.2</div>
+                        <div class="rank">#5</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇫🇷</div>
+                    <div class="country-info">
+                        <h3>France</h3>
+                        <div class="incidence-rate">14.9</div>
+                        <div class="rank">#6</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇯🇵</div>
+                    <div class="country-info">
+                        <h3>Japan</h3>
+                        <div class="incidence-rate">12.3</div>
+                        <div class="rank">#7</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇮🇳</div>
+                    <div class="country-info">
+                        <h3>India</h3>
+                        <div class="incidence-rate">8.9</div>
+                        <div class="rank">#8</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇧🇷</div>
+                    <div class="country-info">
+                        <h3>Brazil</h3>
+                        <div class="incidence-rate">7.2</div>
+                        <div class="rank">#9</div>
+                    </div>
+                </div>
+
+                <div class="country-card">
+                    <div class="country-flag">🇳🇬</div>
+                    <div class="country-info">
+                        <h3>Nigeria</h3>
+                        <div class="incidence-rate">3.1</div>
+                        <div class="rank">#10 Lowest</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tumor Types -->
+    <section class="tumor-types">
+        <div class="container">
+            <h2 class="section-title">Types of Brain Tumors</h2>
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Glioma</h3>
+                    </div>
+                    <p>Most common type of primary brain tumor. Can be benign or malignant. Includes astrocytomas, oligodendrogliomas, and glioblastomas.</p>
+                    <div class="type-stats">~50% of all brain tumors</div>
+                    <div class="type-info">
+                        <strong>Grade:</strong> I-IV (IV being most aggressive)<br>
+                        <strong>Common in:</strong> Adults aged 45-65<br>
+                        <strong>5-year survival:</strong> 5-35% depending on grade
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Meningioma</h3>
+                    </div>
+                    <p>Usually benign tumors that arise from the meninges. Most common in women and older adults. Often asymptomatic.</p>
+                    <div class="type-stats">~30% of all brain tumors</div>
+                    <div class="type-info">
+                        <strong>Grade:</strong> I-III (Most are grade I)<br>
+                        <strong>Common in:</strong> Women aged 40-70<br>
+                        <strong>5-year survival:</strong> 70-95% depending on grade
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Pituitary</h3>
+                    </div>
+                    <p>Tumors that develop in the pituitary gland. Can affect hormone production. Most are benign adenomas.</p>
+                    <div class="type-stats">~15% of all brain tumors</div>
+                    <div class="type-info">
+                        <strong>Grade:</strong> I-IV<br>
+                        <strong>Common in:</strong> Adults aged 30-50<br>
+                        <strong>5-year survival:</strong> 80-95% depending on type
+                    </div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Other Types</h3>
+                    </div>
+                    <p>Includes schwannomas, medulloblastomas, and metastatic tumors from other parts of the body.</p>
+                    <div class="type-stats">~5% of all brain tumors</div>
+                    <div class="type-info">
+                        <strong>Grade:</strong> Varies by type<br>
+                        <strong>Common in:</strong> All age groups<br>
+                        <strong>5-year survival:</strong> Varies significantly
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Factors -->
+    <section class="risk-factors">
+        <div class="container">
+            <h2 class="section-title">Risk Factors</h2>
+            <div class="factors-grid">
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-radiation"></i>
+                    </div>
+                    <h3>Ionizing Radiation</h3>
+                    <p>Exposure to high doses of ionizing radiation, particularly to the head and neck area.</p>
+                </div>
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Genetic Factors</h3>
+                    <p>Certain inherited genetic conditions like Neurofibromatosis, Li-Fraumeni syndrome, and Turcot syndrome.</p>
+                </div>
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-venus-mars"></i>
+                    </div>
+                    <h3>Gender</h3>
+                    <p>Meningiomas are more common in women, while gliomas are slightly more common in men.</p>
+                </div>
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                    <h3>Age</h3>
+                    <p>Risk increases with age, with most brain tumors diagnosed in people over 65.</p>
+                </div>
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-smoking"></i>
+                    </div>
+                    <h3>Environmental Factors</h3>
+                    <p>Exposure to certain chemicals, pesticides, and electromagnetic fields may increase risk.</p>
+                </div>
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Cell Phone Use</h3>
+                    <p>Some studies suggest long-term heavy cell phone use may be associated with increased risk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diagnosis Methods -->
+    <section class="diagnosis">
+        <div class="container">
+            <h2 class="section-title">Diagnosis Methods</h2>
+            <div class="diagnosis-grid">
+                <div class="diagnosis-card">
+                    <div class="diagnosis-icon">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <h3>MRI (Magnetic Resonance Imaging)</h3>
+                    <p>The gold standard for brain tumor diagnosis. Provides detailed images of brain structures and can detect tumors as small as a few millimeters.</p>
+                    <ul>
+                        <li>High-resolution imaging</li>
+                        <li>No radiation exposure</li>
+                        <li>Can show tumor characteristics</li>
+                    </ul>
+                </div>
+                <div class="diagnosis-card">
+                    <div class="diagnosis-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3>CT Scan</h3>
+                    <p>Useful for detecting bleeding, calcification, or bone involvement. Often used in emergency situations.</p>
+                    <ul>
+                        <li>Fast imaging</li>
+                        <li>Good for acute symptoms</li>
+                        <li>Uses ionizing radiation</li>
+                    </ul>
+                </div>
+                <div class="diagnosis-card">
+                    <div class="diagnosis-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Biopsy</h3>
+                    <p>Surgical removal of a small tissue sample for microscopic examination to determine tumor type and grade.</p>
+                    <ul>
+                        <li>Definitive diagnosis</li>
+                        <li>Determines treatment approach</li>
+                        <li>Minimally invasive techniques available</li>
+                    </ul>
+                </div>
+                <div class="diagnosis-card">
+                    <div class="diagnosis-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neurological Examination</h3>
+                    <p>Assessment of cognitive function, motor skills, sensory perception, and reflexes to evaluate tumor impact.</p>
+                    <ul>
+                        <li>Evaluates functional impact</li>
+                        <li>Helps determine urgency</li>
+                        <li>Monitors disease progression</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms Section -->
+    <section class="symptoms">
+        <div class="container">
+            <h2 class="section-title">Common Symptoms</h2>
+            <div class="symptoms-grid">
+                <div class="symptom-item">
+                    <i class="fas fa-headache"></i>
+                    <span>Persistent headaches</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-dizzy"></i>
+                    <span>Dizziness or vertigo</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Vision problems</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-brain"></i>
+                    <span>Memory loss</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-walking"></i>
+                    <span>Balance issues</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-volume-up"></i>
+                    <span>Hearing changes</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-tired"></i>
+                    <span>Fatigue</span>
+                </div>
+                <div class="symptom-item">
+                    <i class="fas fa-user-md"></i>
+                    <span>Seizures</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NeuroScan</h4>
+                    <p>Advanced AI-powered brain tumor detection system combining deep learning with medical expertise for early diagnosis and intervention.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/information">Learn</a></li>
+                        <li><a href="/prediction">Scan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="#symptoms">Symptoms</a></li>
+                        <li><a href="#types">Tumor Types</a></li>
+                        <li><a href="#diagnosis">Diagnosis Methods</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Disclaimer</h4>
+                    <p>This AI tool is for educational and informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NeuroScan. All rights reserved. AI-Powered Healthcare Solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='healthcare.js') }}"></script>
+</body>
+</html>

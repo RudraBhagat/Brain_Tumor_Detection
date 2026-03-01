@@ -298,7 +298,99 @@ body {
     padding-top: 0.5rem;
 }
 
-/* -------------- Confidence Map -------------- */
+/* -------------- Report Details -------------- */
+.report-details {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.report-details h4 {
+    color: var(--accent-main);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.report-details p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.detail-kpi {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+.detail-kpi:last-child {
+    border-bottom: none;
+}
+.detail-kpi i {
+    color: var(--accent-main);
+    margin-right: 0.3rem;
+}
+.severity-high {
+    color: var(--danger);
+    font-weight: 600;
+}
+.severity-low {
+    color: var(--accent-main);
+    font-weight: 600;
+}
+
+/* -------------- Suggestions Card -------------- */
+.suggestions-card {
+    background-color: var(--bg-main);
+    border: 1px solid var(--warning);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.suggestions-card h4 {
+    color: var(--warning);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+.suggestions-card h4 i {
+    margin-right: 0.3rem;
+}
+.suggestions-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.suggestions-card li {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+.suggestions-card li::before {
+    content: "•";
+    color: var(--accent-main);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+.suggestions-card li strong {
+    color: var(--accent-main);
+}
+.suggestions-card .warning {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--danger);
+}
+.suggestions-card .warning i {
+    margin-right: 0.3rem;
+}
 .confidence-map-container {
     margin-top: 1rem;
 }

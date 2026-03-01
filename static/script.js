@@ -132,6 +132,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultColorClass = isTumor ? 'severity-high' : 'severity-low';
         const confidence = data.confidence.toFixed(2);
 
+        // Generate suggestions based on tumor type
+        let suggestions = '';
+        if (isTumor) {
+            switch(data.predicted_label) {
+                case 'glioma_tumor':
+                    suggestions = `
+                        <div class="suggestions-card">
+                            <h4><i class="fas fa-lightbulb"></i> Treatment Suggestions</h4>
+                            <ul>
+                                <li><strong>Surgery:</strong> Surgical removal of the tumor is often the first step.</li>
+                                <li><strong>Radiation Therapy:</strong> High-energy radiation to target remaining cancer cells.</li>
+                                <li><strong>Chemotherapy:</strong> Medications to kill cancer cells, often combined with radiation.</li>
+                                <li><strong>Follow-up:</strong> Regular MRI scans and neurological check-ups.</li>
+                            </ul>
+                            <p class="warning"><i class="fas fa-exclamation-triangle"></i> Consult a neurosurgeon immediately for personalized treatment plan.</p>
+                        </div>
+                    `;
+                    break;
+                case 'meningioma_tumor':
+                    suggestions = `
+                        <div class="suggestions-card">
+                            <h4><i class="fas fa-lightbulb"></i> Treatment Suggestions</h4>
+                            <ul>
+                                <li><strong>Surgery:</strong> Complete surgical resection is the primary treatment for accessible tumors.</li>
+                                <li><strong>Radiation Therapy:</strong> Stereotactic radiosurgery (Gamma Knife) for tumors in difficult locations.</li>
+                                <li><strong>Monitoring:</strong> Small, asymptomatic tumors may be monitored with regular imaging.</li>
+                                <li><strong>Symptom Management:</strong> Medications for seizures or other symptoms if present.</li>
+                            </ul>
+                            <p class="warning"><i class="fas fa-exclamation-triangle"></i> Seek evaluation by a neurosurgeon for appropriate management.</p>
+                        </div>
+                    `;
+                    break;
+                case 'pituitary_tumor':
+                    suggestions = `
+                        <div class="suggestions-card">
+                            <h4><i class="fas fa-lightbulb"></i> Treatment Suggestions</h4>
+                            <ul>
+                                <li><strong>Surgery:</strong> Transsphenoidal surgery to remove the tumor through the nose.</li>
+                                <li><strong>Medication:</strong> Dopamine agonists or somatostatin analogs to shrink certain tumors.</li>
+                                <li><strong>Radiation Therapy:</strong> Used when surgery is not possible or for residual tumor.</li>
+                                <li><strong>Hormone Replacement:</strong> If pituitary function is affected.</li>
+                            </ul>
+                            <p class="warning"><i class="fas fa-exclamation-triangle"></i> Consult an endocrinologist and neurosurgeon for comprehensive care.</p>
+                        </div>
+                    `;
+                    break;
+            }
+        }
+
         reportContent.innerHTML = `
             <div class="result-box ${resultClass}">
                 <h3><i class="${resultIcon}"></i> ${resultHeader}</h3>
@@ -157,6 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="${resultColorClass}">${isTumor ? 'Consult a specialist immediately' : 'No tumor detected'}</span>
                 </div>
             </div>
+
+            ${suggestions}
 
             <div style="text-align:center; margin-top:15px;">
                 <button id="reUploadBtn" class="diagnostic-btn" style="width:auto;"><i class="fas fa-redo"></i> Re-upload Image</button>

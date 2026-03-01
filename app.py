@@ -96,9 +96,23 @@ def preprocess_image(image_data):
 @app.route('/')
 def home():
     """
-    Renders the main UI page.
+    Renders the main landing page with navigation.
     """
-    return render_template('index.html')
+    return render_template('home.html')
+
+@app.route('/information')
+def information():
+    """
+    Renders the brain tumor information page with statistics.
+    """
+    return render_template('information.html')
+
+@app.route('/prediction')
+def prediction():
+    """
+    Renders the prediction page.
+    """
+    return render_template('prediction.html')
 
 
 @app.route('/predict', methods=['POST'])
@@ -125,24 +139,28 @@ def predict():
         processed_image = preprocess_image(contents)
 
         # Step 3: Make prediction
-        predictions = model.predict(processed_image)
-        predicted_index = np.argmax(predictions[0])
+        predictions_raw = model.predict(processed_image)
+        predicted_index = np.argmax(predictions_raw[0])
         predicted_label = LABELS_DICT[predicted_index]
-        confidence = float(predictions[0][predicted_index] * 100)
+        confidence = float(predictions_raw[0][predicted_index])
 
-        # Step 4: Prepare full confidence map
-        raw_predictions = [
-            {"label": LABELS[i], "confidence": round(float(predictions[0][i] * 100), 2)}
-            for i in range(len(LABELS))
-        ]
+        # Step 4: Prepare prediction dict with normalized label names
+        predictions_dict = {}
+        for i, label in enumerate(LABELS):
+            # Convert label format from 'glioma_tumor' to 'glioma'
+            normalized_label = label.replace('_tumor', '')
+            predictions_dict[normalized_label] = float(predictions_raw[0][i])
+
+        # Normalize the predicted label too
+        normalized_predicted = predicted_label.replace('_tumor', '')
 
         result = {
-            "predicted_label": predicted_label,
-            "confidence": round(confidence, 2),
-            "raw_predictions": raw_predictions
+            "prediction": normalized_predicted,
+            "confidence": confidence,
+            "predictions": predictions_dict
         }
 
-        print(f"🧠 Prediction: {predicted_label} ({confidence:.2f}%)")
+        print(f"🧠 Prediction: {normalized_predicted} ({confidence*100:.2f}%)")
         return jsonify(result)
 
     except Exception as e:

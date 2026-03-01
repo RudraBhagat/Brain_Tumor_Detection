@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroScan - Advanced Brain Tumor Detection System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='healthcare.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>NeuroScan</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="/information" class="nav-link"><i class="fas fa-book"></i> Learn</a></li>
+                    <li><a href="/prediction" class="nav-link"><i class="fas fa-stethoscope"></i> Scan</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Advanced AI-Powered
+                    <span class="accent">Brain Tumor Detection</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Leveraging cutting-edge artificial intelligence and medical imaging to provide accurate, 
+                    fast, and reliable brain tumor detection. Trusted by healthcare professionals worldwide.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/prediction" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Start Diagnosis
+                    </a>
+                    <a href="/information" class="btn btn-secondary">
+                        <i class="fas fa-book"></i> Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="brain-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose NeuroScan?</h2>
+                <p>Industry-leading technology for medical imaging analysis</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Get comprehensive analysis results in under 2 seconds</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Highly Accurate</h3>
+                    <p>92.97% accuracy rate validated on clinical datasets</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Privacy Protected</h3>
+                    <p>100% secure processing - all data stays on your device</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon orange">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Expert Support</h3>
+                    <p>24/7 support from medical professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Advanced Technology</h2>
+                <p>Powered by state-of-the-art deep learning models</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>VGG16 Transfer Learning</h4>
+                    <p>Pre-trained on millions of images for superior pattern recognition</p>
+                </div>
+                <div class="tech-item">
+                    <h4>4-Class Classification</h4>
+                    <p>Detects Glioma, Meningioma, Pituitary tumors, and healthy brains</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Real-time Analysis</h4>
+                    <p>Instant feedback with confidence scores for each classification</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">92.97%</div>
+                    <div class="stat-text">Accuracy (92.97%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">< 2s</div>
+                    <div class="stat-text">Analysis Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-text">Tumor Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Privacy Secure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to get started?</h2>
+                <p>Upload an MRI scan and receive instant AI-powered analysis</p>
+                <a href="/prediction" class="btn btn-large">Begin Diagnosis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NeuroScan</h4>
+                    <p>Advanced AI-powered brain tumor detection system</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/information">Learn</a></li>
+                        <li><a href="/prediction">Scan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NeuroScan. All rights reserved. For educational and research purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='healthcare.js') }}"></script>
+</body>
+</html>
