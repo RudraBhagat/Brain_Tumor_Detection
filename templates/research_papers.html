@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Papers | NeuroScan AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="legal-page">
+    <div class="legal-shell">
+        <header class="legal-topbar">
+            <a href="/" class="legal-brand"><i class="fas fa-brain"></i> NeuroScan AI</a>
+            <a href="/" class="legal-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </header>
+
+        <section class="legal-hero">
+            <span class="legal-kicker"><i class="fas fa-microscope"></i> Evidence and Literature</span>
+            <h1>Research Papers</h1>
+            <p>
+                Selected studies that informed our MRI classification design approach, including segmentation,
+                tumor typing, and deep-learning based diagnostic support methods.
+            </p>
+            <div class="legal-meta">
+                <span>Focus: MRI brain tumor classification</span>
+                <span>Use-case: educational and technical reference</span>
+            </div>
+        </section>
+
+        <div class="legal-grid">
+            <aside class="legal-nav">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
+                    <li><a href="/documentation">Documentation</a></li>
+                    <li><a href="/research-papers" class="active">Research Papers</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                </ul>
+                <div class="legal-support">
+                    For publication collaboration, email <strong>research@neuroscan-ai.com</strong>.
+                </div>
+            </aside>
+
+            <article class="legal-content">
+                <section class="legal-section">
+                    <h2>Key References</h2>
+
+                    <div class="paper-card">
+                        <p class="paper-title">Brain Tumor Segmentation using Convolutional Neural Networks in MRI Images</p>
+                        <p class="paper-meta">Pereira et al., 2016</p>
+                        <p class="paper-desc">A landmark study showing CNN capability for precise tumor region segmentation in MRI data.</p>
+                    </div>
+
+                    <div class="paper-card">
+                        <p class="paper-title">Enhanced Performance of Brain Tumor Classification via Tumor Region Augmentation</p>
+                        <p class="paper-meta">Cheng et al., 2017</p>
+                        <p class="paper-desc">Demonstrates improved classification by emphasizing tumor-specific regions and augmentation strategies.</p>
+                    </div>
+
+                    <div class="paper-card">
+                        <p class="paper-title">Brain Tumor Type Classification via Capsule Networks</p>
+                        <p class="paper-meta">Afshar et al., 2020</p>
+                        <p class="paper-desc">Explores capsule-based architectures to preserve spatial relationships for tumor-type prediction.</p>
+                    </div>
+
+                    <div class="paper-card">
+                        <p class="paper-title">Multi-grade Brain Tumor Classification using Deep CNN with Extensive Data Augmentation</p>
+                        <p class="paper-meta">Sajjad et al., 2019</p>
+                        <p class="paper-desc">Highlights how robust augmentation pipelines can improve performance and generalization.</p>
+                    </div>
+                </section>
+
+                <section class="legal-section">
+                    <h2>How We Use This Literature</h2>
+                    <ul>
+                        <li>To benchmark model architecture and class-wise performance.</li>
+                        <li>To guide preprocessing and data normalization decisions.</li>
+                        <li>To align results interpretation with current clinical-AI research trends.</li>
+                    </ul>
+                    <p class="legal-note">
+                        This page provides informational summaries, not full-paper reproduction.
+                    </p>
+                </section>
+            </article>
+        </div>
+
+        <p class="legal-footer">NeuroScan AI Research References</p>
+    </div>
+</body>
+</html>
+

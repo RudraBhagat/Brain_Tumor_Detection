@@ -136,6 +136,54 @@ def predict_page():
     return render_template('predict.html')
 
 
+@app.route('/privacy-policy')
+def privacy_policy():
+    """
+    Renders the privacy policy page.
+    """
+    return render_template('privacy_policy.html')
+
+
+@app.route('/terms-of-service')
+def terms_of_service():
+    """
+    Renders the terms of service page.
+    """
+    return render_template('terms_of_service.html')
+
+
+@app.route('/medical-disclaimer')
+def medical_disclaimer():
+    """
+    Renders the medical disclaimer page.
+    """
+    return render_template('medical_disclaimer.html')
+
+
+@app.route('/contact-us')
+def contact_us():
+    """
+    Renders the contact page.
+    """
+    return render_template('contact_us.html')
+
+
+@app.route('/documentation')
+def documentation():
+    """
+    Renders the documentation page.
+    """
+    return render_template('documentation.html')
+
+
+@app.route('/research-papers')
+def research_papers():
+    """
+    Renders the research papers page.
+    """
+    return render_template('research_papers.html')
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """

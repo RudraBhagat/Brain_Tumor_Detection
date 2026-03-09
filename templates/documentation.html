@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | NeuroScan AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="legal-page">
+    <div class="legal-shell">
+        <header class="legal-topbar">
+            <a href="/" class="legal-brand"><i class="fas fa-brain"></i> NeuroScan AI</a>
+            <a href="/" class="legal-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </header>
+
+        <section class="legal-hero">
+            <span class="legal-kicker"><i class="fas fa-book-medical"></i> Product Documentation</span>
+            <h1>Documentation</h1>
+            <p>
+                This guide explains how to use the NeuroScan AI prediction workflow, understand outputs,
+                and apply model results responsibly in medical decision-support settings.
+            </p>
+            <div class="legal-meta">
+                <span>Model classes: 4 categories</span>
+                <span>Expected prediction time: under 2 seconds</span>
+            </div>
+        </section>
+
+        <div class="legal-grid">
+            <aside class="legal-nav">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/medical-disclaimer">Medical Disclaimer</a></li>
+                    <li><a href="/documentation" class="active">Documentation</a></li>
+                    <li><a href="/research-papers">Research Papers</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                </ul>
+                <div class="legal-support">
+                    Need implementation help? Contact <strong>docs@neuroscan-ai.com</strong>.
+                </div>
+            </aside>
+
+            <article class="legal-content">
+                <section class="legal-section">
+                    <h2>1. Workflow Overview</h2>
+                    <ol>
+                        <li>Open the <a href="/predict">Get Diagnosis</a> page.</li>
+                        <li>Upload an MRI image in supported format (PNG, JPG, JPEG).</li>
+                        <li>Run analysis and review class probabilities and confidence.</li>
+                        <li>Cross-check findings with clinical assessment before final decisions.</li>
+                    </ol>
+                </section>
+
+                <section class="legal-section">
+                    <h2>2. Output Format</h2>
+                    <p>Prediction response includes:</p>
+                    <ul>
+                        <li><strong>prediction:</strong> top predicted class label.</li>
+                        <li><strong>confidence:</strong> model confidence value (0 to 1).</li>
+                        <li><strong>predictions:</strong> class-wise probability distribution.</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>3. Supported Classes</h2>
+                    <div class="legal-cards">
+                        <div class="legal-card">
+                            <h4>Glioma</h4>
+                            <p>Tumors arising from glial cells with varied aggressiveness.</p>
+                        </div>
+                        <div class="legal-card">
+                            <h4>Meningioma</h4>
+                            <p>Tumors originating in the meninges surrounding brain and spinal cord.</p>
+                        </div>
+                        <div class="legal-card">
+                            <h4>Pituitary</h4>
+                            <p>Tumors located around the pituitary gland region.</p>
+                        </div>
+                        <div class="legal-card">
+                            <h4>No Tumor</h4>
+                            <p>No visible tumor-like pattern according to the model.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="legal-section">
+                    <h2>4. Model and Processing Notes</h2>
+                    <ul>
+                        <li>Transfer-learning architecture using VGG16 backbone.</li>
+                        <li>Input images are resized to 150 x 150 and normalized.</li>
+                        <li>Probability scores are generated via softmax output layer.</li>
+                    </ul>
+                </section>
+
+                <section class="legal-section">
+                    <h2>5. Responsible Use</h2>
+                    <p class="legal-note">
+                        AI output should support, not replace, the judgment of certified medical professionals.
+                    </p>
+                </section>
+            </article>
+        </div>
+
+        <p class="legal-footer">NeuroScan AI Documentation</p>
+    </div>
+</body>
+</html>
+
