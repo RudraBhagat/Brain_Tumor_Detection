@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Statistics - NeuroScan AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>NeuroScan AI</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/information">Information</a></li>
+                <li><a href="/statistics" class="active">Statistics</a></li>
+                <li><a href="/experts">Expert Opinions</a></li>
+                <li><a href="/model">Our Model</a></li>
+                <li><a href="/predict" class="nav-cta">Get Diagnosis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Global Brain Tumor Statistics</h1>
+            <p>Understanding the worldwide impact and prevalence of brain tumors</p>
+        </div>
+    </section>
+
+    <!-- Global Overview -->
+    <section class="stats-overview">
+        <div class="container">
+            <div class="stats-hero-grid">
+                <div class="stat-hero-card">
+                    <div class="stat-hero-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-hero-content">
+                        <h3>308,000+</h3>
+                        <p>New cases diagnosed globally each year</p>
+                    </div>
+                </div>
+                <div class="stat-hero-card">
+                    <div class="stat-hero-icon"><i class="fas fa-procedures"></i></div>
+                    <div class="stat-hero-content">
+                        <h3>251,329</h3>
+                        <p>Brain tumor related deaths annually</p>
+                    </div>
+                </div>
+                <div class="stat-hero-card">
+                    <div class="stat-hero-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-hero-content">
+                        <h3>2.8%</h3>
+                        <p>Annual increase in incidence rate</p>
+                    </div>
+                </div>
+                <div class="stat-hero-card">
+                    <div class="stat-hero-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="stat-hero-content">
+                        <h3>1.55:1</h3>
+                        <p>Male to female ratio for gliomas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tumor Distribution -->
+    <section class="distribution-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Breakdown</span>
+                <h2 class="section-title">Brain Tumor Distribution by Type</h2>
+            </div>
+            <div class="distribution-grid">
+                <div class="distribution-card">
+                    <div class="chart-container">
+                        <div class="pie-chart" style="--percentage: 33; --color: #FF6B6B;">
+                            <span class="chart-label">33%</span>
+                        </div>
+                    </div>
+                    <h4>Gliomas</h4>
+                    <p>Most common malignant brain tumor</p>
+                    <span class="stat-number">~101,640 cases/year</span>
+                </div>
+                <div class="distribution-card">
+                    <div class="chart-container">
+                        <div class="pie-chart" style="--percentage: 38; --color: #4ECDC4;">
+                            <span class="chart-label">38%</span>
+                        </div>
+                    </div>
+                    <h4>Meningiomas</h4>
+                    <p>Most common benign brain tumor</p>
+                    <span class="stat-number">~117,040 cases/year</span>
+                </div>
+                <div class="distribution-card">
+                    <div class="chart-container">
+                        <div class="pie-chart" style="--percentage: 15; --color: #95E1D3;">
+                            <span class="chart-label">15%</span>
+                        </div>
+                    </div>
+                    <h4>Pituitary Tumors</h4>
+                    <p>Hormone-producing tumors</p>
+                    <span class="stat-number">~46,200 cases/year</span>
+                </div>
+                <div class="distribution-card">
+                    <div class="chart-container">
+                        <div class="pie-chart" style="--percentage: 14; --color: #FFD93D;">
+                            <span class="chart-label">14%</span>
+                        </div>
+                    </div>
+                    <h4>Other Types</h4>
+                    <p>Including schwannomas, lymphomas</p>
+                    <span class="stat-number">~43,120 cases/year</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 10 Countries -->
+    <section class="top-countries">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Global Impact</span>
+                <h2 class="section-title">Top 10 Countries by Brain Tumor Cases</h2>
+                <p class="section-description">Based on age-standardized incidence rates per 100,000 population</p>
+            </div>
+            
+            <div class="countries-list">
+                <div class="country-item">
+                    <div class="country-rank">1</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/us.png" alt="United States">
+                    </div>
+                    <div class="country-info">
+                        <h4>United States</h4>
+                        <p>Highest incidence rate globally</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">24,530</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">7.45/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">2</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/gb.png" alt="United Kingdom">
+                    </div>
+                    <div class="country-info">
+                        <h4>United Kingdom</h4>
+                        <p>Second highest in Europe</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">11,400</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">6.98/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 94%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">3</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/ca.png" alt="Canada">
+                    </div>
+                    <div class="country-info">
+                        <h4>Canada</h4>
+                        <p>High North American incidence</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">3,200</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">6.72/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">4</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/au.png" alt="Australia">
+                    </div>
+                    <div class="country-info">
+                        <h4>Australia</h4>
+                        <p>Highest in Asia-Pacific region</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">1,900</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">6.45/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">5</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/de.png" alt="Germany">
+                    </div>
+                    <div class="country-info">
+                        <h4>Germany</h4>
+                        <p>Leading European nation</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">8,100</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">6.21/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 83%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">6</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/fr.png" alt="France">
+                    </div>
+                    <div class="country-info">
+                        <h4>France</h4>
+                        <p>Major European contributor</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">6,700</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">5.94/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">7</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/jp.png" alt="Japan">
+                    </div>
+                    <div class="country-info">
+                        <h4>Japan</h4>
+                        <p>Highest in East Asia</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">11,200</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">5.67/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 76%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">8</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/it.png" alt="Italy">
+                    </div>
+                    <div class="country-info">
+                        <h4>Italy</h4>
+                        <p>Southern European leader</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">5,800</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">5.53/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 74%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">9</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/br.png" alt="Brazil">
+                    </div>
+                    <div class="country-info">
+                        <h4>Brazil</h4>
+                        <p>Largest in South America</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">11,800</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">5.32/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 71%;"></div>
+                    </div>
+                </div>
+
+                <div class="country-item">
+                    <div class="country-rank">10</div>
+                    <div class="country-flag">
+                        <img src="https://flagcdn.com/w80/cn.png" alt="China">
+                    </div>
+                    <div class="country-info">
+                        <h4>China</h4>
+                        <p>Largest population affected</p>
+                    </div>
+                    <div class="country-stats">
+                        <div class="country-stat">
+                            <span class="stat-label">Cases/Year</span>
+                            <span class="stat-value">45,000</span>
+                        </div>
+                        <div class="country-stat">
+                            <span class="stat-label">Incidence Rate</span>
+                            <span class="stat-value">5.12/100k</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 69%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Age Distribution -->
+    <section class="age-distribution">
+        <div class="container">
+            <h2>Age Distribution</h2>
+            <p class="section-intro">Brain tumor incidence varies significantly by age group</p>
+            <div class="age-grid">
+                <div class="age-card">
+                    <h4>0-19 Years</h4>
+                    <div class="age-bar" style="--width: 15%;">
+                        <span>15%</span>
+                    </div>
+                    <p>Primarily medulloblastomas and ependymomas</p>
+                </div>
+                <div class="age-card">
+                    <h4>20-34 Years</h4>
+                    <div class="age-bar" style="--width: 12%;">
+                        <span>12%</span>
+                    </div>
+                    <p>Lower risk period with mixed tumor types</p>
+                </div>
+                <div class="age-card">
+                    <h4>35-54 Years</h4>
+                    <div class="age-bar" style="--width: 28%;">
+                        <span>28%</span>
+                    </div>
+                    <p>Increasing glioma incidence</p>
+                </div>
+                <div class="age-card">
+                    <h4>55-64 Years</h4>
+                    <div class="age-bar" style="--width: 23%;">
+                        <span>23%</span>
+                    </div>
+                    <p>Peak age for meningiomas</p>
+                </div>
+                <div class="age-card">
+                    <h4>65+ Years</h4>
+                    <div class="age-bar" style="--width: 22%;">
+                        <span>22%</span>
+                    </div>
+                    <p>Highest risk for glioblastomas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Survival Rates -->
+    <section class="survival-rates">
+        <div class="container">
+            <h2>5-Year Survival Rates by Tumor Type</h2>
+            <div class="survival-grid">
+                <div class="survival-card">
+                    <h4>Glioblastoma (Grade IV)</h4>
+                    <div class="survival-stat poor">
+                        <span class="survival-percent">6.8%</span>
+                    </div>
+                    <p>Most aggressive brain tumor</p>
+                </div>
+                <div class="survival-card">
+                    <h4>Anaplastic Astrocytoma (Grade III)</h4>
+                    <div class="survival-stat fair">
+                        <span class="survival-percent">27%</span>
+                    </div>
+                    <p>Malignant with better prognosis</p>
+                </div>
+                <div class="survival-card">
+                    <h4>Low-Grade Glioma (Grade II)</h4>
+                    <div class="survival-stat good">
+                        <span class="survival-percent">47%</span>
+                    </div>
+                    <p>Slower-growing tumors</p>
+                </div>
+                <div class="survival-card">
+                    <h4>Meningioma (Benign)</h4>
+                    <div class="survival-stat excellent">
+                        <span class="survival-percent">84%</span>
+                    </div>
+                    <p>Excellent prognosis with treatment</p>
+                </div>
+                <div class="survival-card">
+                    <h4>Pituitary Adenomas</h4>
+                    <div class="survival-stat excellent">
+                        <span class="survival-percent">97%</span>
+                    </div>
+                    <p>Very high survival rate</p>
+                </div>
+                <div class="survival-card">
+                    <h4>Oligodendroglioma</h4>
+                    <div class="survival-stat good">
+                        <span class="survival-percent">74%</span>
+                    </div>
+                    <p>Good response to treatment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="key-insights">
+        <div class="container">
+            <h2>Key Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Rising Incidence</h4>
+                    <p>Global brain tumor cases have increased by approximately 2.8% annually over the past decade, partly due to improved detection methods and aging populations.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-microscope"></i>
+                    <h4>Early Detection Impact</h4>
+                    <p>Survival rates improve significantly when tumors are detected early. Regular screening for high-risk individuals is crucial.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h4>Geographic Variation</h4>
+                    <p>Developed countries show higher incidence rates, likely due to better diagnostic capabilities and healthcare access.</p>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-dna"></i>
+                    <h4>Research Progress</h4>
+                    <p>Advances in immunotherapy and targeted treatments are improving outcomes, especially for previously difficult-to-treat tumors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Early Detection Saves Lives</h2>
+                <p>Use our AI-powered system for rapid brain tumor classification</p>
+                <a href="/predict" class="btn btn-light btn-large">
+                    <i class="fas fa-upload"></i> Analyze MRI Scan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <i class="fas fa-brain"></i>
+                        <span>NeuroScan AI</span>
+                    </div>
+                    <p class="footer-description">
+                        Advanced artificial intelligence for accurate brain tumor detection. 
+                        Empowering healthcare professionals with cutting-edge diagnostic tools.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/information">Information</a></li>
+                        <li><a href="/statistics">Statistics</a></li>
+                        <li><a href="/predict">Get Diagnosis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/experts">Expert Opinions</a></li>
+                        <li><a href="/model">Our Model</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Medical Disclaimer</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NeuroScan AI. All rights reserved.</p>
+                <p class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    This is an AI-assisted diagnostic tool. Always consult with qualified healthcare professionals.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

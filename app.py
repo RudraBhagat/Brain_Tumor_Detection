@@ -98,7 +98,7 @@ def home():
     """
     Renders the main landing page with navigation.
     """
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/information')
 def information():
@@ -107,12 +107,33 @@ def information():
     """
     return render_template('information.html')
 
-@app.route('/prediction')
-def prediction():
+@app.route('/statistics')
+def statistics():
+    """
+    Renders the global statistics page.
+    """
+    return render_template('statistics.html')
+
+@app.route('/experts')
+def experts():
+    """
+    Renders the expert opinions page.
+    """
+    return render_template('experts.html')
+
+@app.route('/model')
+def model_info():
+    """
+    Renders the AI model information page.
+    """
+    return render_template('model.html')
+
+@app.route('/predict')
+def predict_page():
     """
     Renders the prediction page.
     """
-    return render_template('prediction.html')
+    return render_template('predict.html')
 
 
 @app.route('/predict', methods=['POST'])

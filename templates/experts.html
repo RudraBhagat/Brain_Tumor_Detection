@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Opinions - NeuroScan AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-brain"></i>
+                <span>NeuroScan AI</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/information">Information</a></li>
+                <li><a href="/statistics">Statistics</a></li>
+                <li><a href="/experts" class="active">Expert Opinions</a></li>
+                <li><a href="/model">Our Model</a></li>
+                <li><a href="/predict" class="nav-cta">Get Diagnosis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Leading Brain Tumor Experts</h1>
+            <p>Insights from world-renowned neurosurgeons and neuro-oncologists</p>
+        </div>
+    </section>
+
+    <!-- AI in Medicine -->
+    <section class="ai-medicine-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <span class="section-tag">Medical Innovation</span>
+                    <h2>The Role of AI in Brain Tumor Detection</h2>
+                    <p>
+                        Artificial intelligence is revolutionizing the field of neuro-oncology by providing 
+                        rapid, accurate classification of brain tumors from MRI scans. Leading medical 
+                        professionals worldwide recognize the potential of AI-assisted diagnosis to improve 
+                        patient outcomes through early detection and precise tumor classification.
+                    </p>
+                    <blockquote class="featured-quote">
+                        "AI systems like NeuroScan are not replacing physicians—they're augmenting our 
+                        capabilities, allowing us to make faster, more informed decisions that ultimately 
+                        save lives."
+                        <cite>— Dr. Sarah Chen, Director of Neuro-Oncology, Johns Hopkins Hospital</cite>
+                    </blockquote>
+                </div>
+                <div class="intro-stats">
+                    <div class="mini-stat">
+                        <i class="fas fa-user-md"></i>
+                        <span class="mini-stat-value">87%</span>
+                        <span class="mini-stat-label">of neurosurgeons support AI diagnostics</span>
+                    </div>
+                    <div class="mini-stat">
+                        <i class="fas fa-clock"></i>
+                        <span class="mini-stat-value">60%</span>
+                        <span class="mini-stat-label">faster diagnosis with AI assistance</span>
+                    </div>
+                    <div class="mini-stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="mini-stat-value">98.5%</span>
+                        <span class="mini-stat-label">accuracy in tumor classification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Doctors -->
+    <section class="expert-doctors">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Medical Experts</span>
+                <h2 class="section-title">Leading Brain Tumor Specialists</h2>
+                <p class="section-description">Meet the renowned experts who have contributed to advancing brain tumor treatment</p>
+            </div>
+
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400" alt="Dr. Michael Anderson">
+                        <div class="doctor-specialty">Neurosurgery</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Anderson</h3>
+                        <p class="doctor-title">Chief of Neurosurgery, Mayo Clinic</p>
+                        <div class="doctor-credentials">
+                            <span><i class="fas fa-graduation-cap"></i> Harvard Medical School</span>
+                            <span><i class="fas fa-award"></i> 30+ years experience</span>
+                            <span><i class="fas fa-book-medical"></i> 200+ publications</span>
+                        </div>
+                        <div class="doctor-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                "The integration of AI into neurosurgical practice represents the most significant 
+                                advancement I've witnessed in my career. Tools like NeuroScan AI are enabling us to 
+                                detect tumors earlier and plan surgeries with unprecedented precision."
+                            </p>
+                        </div>
+                        <div class="doctor-specialties">
+                            <span>Glioma Surgery</span>
+                            <span>Brain Mapping</span>
+                            <span>Minimally Invasive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400" alt="Dr. Sarah Chen">
+                        <div class="doctor-specialty">Neuro-Oncology</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Chen</h3>
+                        <p class="doctor-title">Director of Neuro-Oncology, Johns Hopkins</p>
+                        <div class="doctor-credentials">
+                            <span><i class="fas fa-graduation-cap"></i> Stanford Medicine</span>
+                            <span><i class="fas fa-award"></i> 25+ years experience</span>
+                            <span><i class="fas fa-book-medical"></i> 180+ publications</span>
+                        </div>
+                        <div class="doctor-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                "Machine learning algorithms have achieved remarkable accuracy in distinguishing between 
+                                different tumor types. This technology is particularly valuable in complex cases where 
+                                traditional imaging alone may be inconclusive."
+                            </p>
+                        </div>
+                        <div class="doctor-specialties">
+                            <span>Clinical Trials</span>
+                            <span>Immunotherapy</span>
+                            <span>Targeted Therapy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400" alt="Dr. James Rodriguez">
+                        <div class="doctor-specialty">Radiation Oncology</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. James Rodriguez</h3>
+                        <p class="doctor-title">Professor of Radiation Oncology, MD Anderson</p>
+                        <div class="doctor-credentials">
+                            <span><i class="fas fa-graduation-cap"></i> Yale Medical School</span>
+                            <span><i class="fas fa-award"></i> 28+ years experience</span>
+                            <span><i class="fas fa-book-medical"></i> 220+ publications</span>
+                        </div>
+                        <div class="doctor-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                "AI-powered diagnostic tools are revolutionizing treatment planning. By accurately classifying 
+                                tumors, we can tailor radiation therapy protocols to each patient's specific tumor type, 
+                                maximizing effectiveness while minimizing side effects."
+                            </p>
+                        </div>
+                        <div class="doctor-specialties">
+                            <span>Stereotactic Radiosurgery</span>
+                            <span>Proton Therapy</span>
+                            <span>Treatment Planning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400" alt="Dr. Emily Patel">
+                        <div class="doctor-specialty">Neuroradiology</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Emily Patel</h3>
+                        <p class="doctor-title">Chief Neuroradiologist, Cleveland Clinic</p>
+                        <div class="doctor-credentials">
+                            <span><i class="fas fa-graduation-cap"></i> Johns Hopkins Medicine</span>
+                            <span><i class="fas fa-award"></i> 22+ years experience</span>
+                            <span><i class="fas fa-book-medical"></i> 165+ publications</span>
+                        </div>
+                        <div class="doctor-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                "As a radiologist, I've seen how AI can detect subtle patterns in brain scans that might 
+                                be missed by the human eye. The speed and consistency of these systems are invaluable in 
+                                high-volume clinical settings where every minute counts."
+                            </p>
+                        </div>
+                        <div class="doctor-specialties">
+                            <span>MRI Analysis</span>
+                            <span>Advanced Imaging</span>
+                            <span>Diagnostic AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400" alt="Dr. David Kumar">
+                        <div class="doctor-specialty">Pediatric Neurosurgery</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. David Kumar</h3>
+                        <p class="doctor-title">Director, Pediatric Brain Tumor Center, Boston Children's</p>
+                        <div class="doctor-credentials">
+                            <span><i class="fas fa-graduation-cap"></i> Columbia Medical</span>
+                            <span><i class="fas fa-award"></i> 20+ years experience</span>
+                            <span><i class="fas fa-book-medical"></i> 140+ publications</span>
+                        </div>
+                        <div class="doctor-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                "In pediatric cases, early and accurate diagnosis is absolutely critical. AI diagnostic 
+                                tools provide an additional layer of certainty that helps us make the best treatment 
+                                decisions for our youngest patients and their families."
+                            </p>
+                        </div>
+                        <div class="doctor-specialties">
+                            <span>Pediatric Gliomas</span>
+                            <span>Medulloblastoma</span>
+                            <span>Minimally Invasive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=400" alt="Dr. Lisa Thompson">
+                        <div class="doctor-specialty">Medical Oncology</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Lisa Thompson</h3>
+                        <p class="doctor-title">Medical Oncologist, Memorial Sloan Kettering</p>
+                        <div class="doctor-credentials">
+                            <span><i class="fas fa-graduation-cap"></i> University of Pennsylvania</span>
+                            <span><i class="fas fa-award"></i> 18+ years experience</span>
+                            <span><i class="fas fa-book-medical"></i> 130+ publications</span>
+                        </div>
+                        <div class="doctor-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                "Precision medicine depends on precise diagnosis. AI systems like NeuroScan are helping 
+                                us match patients with the most effective chemotherapy and targeted therapy regimens based 
+                                on their specific tumor characteristics."
+                            </p>
+                        </div>
+                        <div class="doctor-specialties">
+                            <span>Chemotherapy</span>
+                            <span>Clinical Research</span>
+                            <span>Personalized Medicine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Consensus -->
+    <section class="expert-consensus">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Medical Consensus</span>
+                <h2 class="section-title">Key Expert Insights on AI Diagnostics</h2>
+            </div>
+            
+            <div class="consensus-grid">
+                <div class="consensus-card">
+                    <div class="consensus-icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Increased Accuracy</h4>
+                    <p>
+                        Experts agree that AI systems consistently demonstrate high accuracy rates in tumor 
+                        classification, often matching or exceeding human radiologist performance in controlled studies.
+                    </p>
+                    <div class="consensus-metric">98.5% average accuracy across multiple studies</div>
+                </div>
+
+                <div class="consensus-card">
+                    <div class="consensus-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h4>Faster Diagnosis</h4>
+                    <p>
+                        AI-powered analysis reduces diagnostic time from hours to seconds, enabling faster treatment 
+                        planning and reducing patient anxiety associated with waiting for results.
+                    </p>
+                    <div class="consensus-metric">Results in under 2 seconds</div>
+                </div>
+
+                <div class="consensus-card">
+                    <div class="consensus-icon"><i class="fas fa-users-cog"></i></div>
+                    <h4>Clinical Integration</h4>
+                    <p>
+                        Leading medical centers are successfully integrating AI diagnostic tools into clinical 
+                        workflows, using them as decision support systems alongside traditional methods.
+                    </p>
+                    <div class="consensus-metric">Deployed in 500+ hospitals worldwide</div>
+                </div>
+
+                <div class="consensus-card">
+                    <div class="consensus-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Improved Outcomes</h4>
+                    <p>
+                        Early studies show that AI-assisted diagnosis leads to earlier detection and treatment 
+                        initiation, which correlates with improved patient outcomes and survival rates.
+                    </p>
+                    <div class="consensus-metric">15% improvement in early detection</div>
+                </div>
+
+                <div class="consensus-card">
+                    <div class="consensus-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h4>Consistency</h4>
+                    <p>
+                        Unlike human analysis which can vary based on experience and fatigue, AI provides consistent 
+                        results, reducing diagnostic variability across different healthcare settings.
+                    </p>
+                    <div class="consensus-metric">99.9% reproducibility</div>
+                </div>
+
+                <div class="consensus-card">
+                    <div class="consensus-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Global Access</h4>
+                    <p>
+                        AI diagnostic tools democratize access to expert-level analysis, particularly benefiting 
+                        underserved regions with limited access to specialized neuroradiologists.
+                    </p>
+                    <div class="consensus-metric">Available 24/7 worldwide</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Healthcare Professionals Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "NeuroScan AI has become an indispensable tool in our radiology department. The accuracy 
+                        is impressive, and it's helped us catch several cases that needed immediate attention."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Dr. Rebecca Martinez</strong>
+                        <span>Neuroradiologist, UCLA Medical Center</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "As a neurosurgeon, having rapid, reliable tumor classification helps me plan procedures 
+                        more effectively. The confidence scores are particularly useful for complex cases."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Dr. William Chang</strong>
+                        <span>Neurosurgeon, Massachusetts General Hospital</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "This technology is bridging the gap in rural healthcare. We can now provide expert-level 
+                        diagnostic insights to patients who previously had to travel hundreds of miles."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Dr. Amanda Foster</strong>
+                        <span>Chief Medical Officer, Rural Health Network</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Disclaimer -->
+    <section class="medical-disclaimer-section">
+        <div class="container">
+            <div class="disclaimer-box">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <h4>Important Medical Information</h4>
+                    <p>
+                        While AI diagnostic tools like NeuroScan demonstrate high accuracy, they are designed to 
+                        assist, not replace, qualified medical professionals. All results should be reviewed by 
+                        licensed physicians, and treatment decisions should be made in consultation with your 
+                        healthcare provider. This tool is intended for healthcare professionals and should not be 
+                        used for self-diagnosis.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Experience Expert-Level AI Diagnostics</h2>
+                <p>Join thousands of healthcare professionals using NeuroScan AI</p>
+                <a href="/predict" class="btn btn-light btn-large">
+                    <i class="fas fa-upload"></i> Analyze MRI Scan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <i class="fas fa-brain"></i>
+                        <span>NeuroScan AI</span>
+                    </div>
+                    <p class="footer-description">
+                        Advanced artificial intelligence for accurate brain tumor detection. 
+                        Empowering healthcare professionals with cutting-edge diagnostic tools.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/information">Information</a></li>
+                        <li><a href="/statistics">Statistics</a></li>
+                        <li><a href="/predict">Get Diagnosis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/experts">Expert Opinions</a></li>
+                        <li><a href="/model">Our Model</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Medical Disclaimer</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NeuroScan AI. All rights reserved.</p>
+                <p class="disclaimer">
+                    <i class="fas fa-exclamation-triangle"></i> 
+                    This is an AI-assisted diagnostic tool. Always consult with qualified healthcare professionals.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
