@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-# content of runtime.txt
-=======
-# content of runtime.txt
->>>>>>> 7061c9a3551a85e112890676428f94ff9563c3da
 python-3.11.8
