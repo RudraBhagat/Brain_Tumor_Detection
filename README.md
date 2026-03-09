@@ -1,105 +1,142 @@
-# NeuroScan - AI-Powered Brain Tumor Detection
+# NeuroScan AI - Brain Tumor Detection (Flask + VGG16)
 
-NeuroScan is a real-world, professional-grade web application that uses deep learning to analyze MRI brain scans for tumor detection. Built with Flask and a VGG16-based transfer learning model, the platform delivers accurate, fast, and privacy-conscious AI diagnostics suitable for medical research and educational purposes.
+NeuroScan AI is a web-based deep learning application for MRI brain tumor classification.
+It uses a VGG16 transfer-learning model and a Flask backend to provide fast predictions for:
 
----
+- `glioma`
+- `meningioma`
+- `pituitary`
+- `no_tumor`
 
-## 🚀 Features
+This project is intended for educational and research use.
 
-- **AI Brain Tumor Classification** (Glioma, Meningioma, Pituitary, No Tumor)
-- **Model Accuracy:** 92.97% on test data
-- **Upload Interface:** Drag-and-drop or browse MRI images (JPG/PNG, ≤10 MB)
-- **Real-time Results:** Confidence meters, classification breakdown, model performance metrics
-- **Clinical Recommendations:** Treatment suggestions based on detected tumor type
-- **Reset Button:** "Analyze Another Image" for repeated scans
-- **Responsive & Accessible UI:** Mobile-first design, WCAG AA compliant, clean professional look
-- **Educational Content:** Comprehensive information page with statistics, tumor types, risk factors, diagnosis methods, symptoms
-- **Privacy Focus:** All processing performed locally on server, no external uploads
+## Features
 
----
+- MRI image upload and AI-based tumor class prediction
+- Class-wise confidence scores in JSON response
+- Informational pages about brain tumors and statistics
+- Model details and expert-opinion pages
+- Newly added legal/resource pages from footer:
+   - Privacy Policy
+   - Terms of Service
+   - Medical Disclaimer
+   - Contact Us
+   - Documentation
+   - Research Papers
+- Responsive UI with a healthcare-focused theme
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Backend:** Python, Flask, TensorFlow, OpenCV
-- **Frontend:** HTML5, CSS3 (custom `healthcare.css`), JavaScript (`healthcare.js`), FontAwesome
-- **Model:** VGG16 transfer learning (saved as `brain_tumor_detection_model.keras`)
-- **Development:** Virtual environment (`venv`), requirements managed via `requirements.txt`
+- Backend: Python, Flask, Flask-CORS
+- ML/AI: TensorFlow/Keras, VGG16, NumPy, OpenCV
+- Frontend: HTML, CSS, JavaScript, Font Awesome
 
----
+## Project Structure
 
-## 📁 Project Structure
-
-```
+```text
 app.py
 brain_tumor_detection_model.keras
 requirements.txt
 runtime.txt
 training_model.ipynb
-static/
-    healthcare.css
-    healthcare.js
-    ... (legacy files)
-templates/
-    home.html
-    information.html
-    prediction.html
-    index.html (legacy)
-Testing/  Training/ folders with sample MRI images
 HEALTHCARE_REDESIGN_NOTES.md
 README.md
+
+static/
+   style.css
+   script.js
+   images/
+
+templates/
+   index.html
+   information.html
+   statistics.html
+   experts.html
+   model.html
+   predict.html
+   privacy_policy.html
+   terms_of_service.html
+   medical_disclaimer.html
+   contact_us.html
+   documentation.html
+   research_papers.html
+
+Testing/
+   glioma_tumor/
+   meningioma_tumor/
+   no_tumor/
+   pituitary_tumor/
+
+Training/
+   glioma_tumor/
+   meningioma_tumor/
+   no_tumor/
+   pituitary_tumor/
 ```
 
----
+## Application Routes
 
-## 🧩 Setup & Installation
+Main pages:
 
-1. **Clone the repository**
-   ```bash
-   git clone <repo-url> NeuroScan
-   cd NeuroScan
-   ```
-2. **Create and activate a virtual environment**
-   ```powershell
-   python -m venv .venv
-   .\.venv\Scripts\Activate.ps1          # Windows PowerShell
-   ```
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Run the server**
-   ```bash
-   python app.py
-   ```
-5. **Browse to** `http://localhost:8080` and start using the application.
+- `GET /` -> Home
+- `GET /information` -> Information page
+- `GET /statistics` -> Statistics page
+- `GET /experts` -> Expert opinions
+- `GET /model` -> Model details
+- `GET /predict` -> Prediction page
 
-> Note: The training notebook (`training_model.ipynb`) can be used to retrain the model on new data.
+Prediction API:
 
----
+- `POST /predict` -> Accepts uploaded MRI image as form-data key `file`
 
-## 🧪 Testing
+Footer legal/resource pages:
 
-- Upload MRI images located under `Testing/` to verify prediction functionality.
-- Use browser devtools to simulate various screen sizes for responsive layout.
+- `GET /privacy-policy`
+- `GET /terms-of-service`
+- `GET /medical-disclaimer`
+- `GET /contact-us`
+- `GET /documentation`
+- `GET /research-papers`
 
----
+## Setup and Run
 
-## 🚧 Next Steps
+1. Clone the repository.
+2. Create and activate a virtual environment.
+3. Install dependencies.
+4. Run the Flask app.
 
-- Add more image preprocessing and augmentation for improved accuracy
-- Integrate user authentication and logging
-- Deploy using a production-ready WSGI server (e.g., Gunicorn) on cloud infrastructure
-- Add unit/integration tests for backend prediction logic and frontend components
+### Windows PowerShell
 
----
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python app.py
+```
 
-## ⚠️ Disclaimer
+Open: `http://localhost:8080`
 
-This tool is intended for educational and research purposes only. The AI-generated analysis is **not** a medical diagnosis. Always consult a qualified healthcare professional for clinical decisions.
+## Model Notes
 
----
+- The code recreates a VGG16-based architecture in `app.py` and loads weights from:
+   - `brain_tumor_detection_model.keras`
+- Input size used by the model pipeline: `150 x 150`
 
-## 📝 License
+If the model file is missing, startup will report that the model could not be loaded.
 
-MIT License – feel free to modify and use in your projects.
+## Quick Test
+
+- Start the app.
+- Open `/predict`.
+- Upload MRI samples from the `Testing/` subfolders.
+- Verify prediction label and confidence values.
+
+## Important Disclaimer
+
+This software is an AI-assisted analysis tool and not a medical diagnosis system.
+Always consult qualified healthcare professionals for clinical decisions.
+
+## License
+
+MIT
 
