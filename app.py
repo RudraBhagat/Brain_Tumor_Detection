@@ -11,237 +11,228 @@ from tensorflow.keras.applications import VGG16
 # ============================================================
 # CONFIGURATION
 # ============================================================
-MODEL_PATH = 'brain_tumor_detection_model.keras'  # Ensure your model file is in the same directory
+
+MODEL_PATH = "brain_tumor_detection_model.keras"
 IMAGE_SIZE = 150
-LABELS = ['glioma_tumor', 'meningioma_tumor', 'no_tumor', 'pituitary_tumor']
+
+LABELS = [
+    "glioma_tumor",
+    "meningioma_tumor",
+    "no_tumor",
+    "pituitary_tumor"
+]
+
 LABELS_DICT = {i: label for i, label in enumerate(LABELS)}
 
-# Initialize Flask App
-app = Flask(__name__, template_folder='templates', static_folder='static')
+# ============================================================
+# FLASK APP INITIALIZATION
+# ============================================================
+
+app = Flask(__name__, template_folder="templates", static_folder="static")
 CORS(app)
 
 model = None
 
 # ============================================================
-# MODEL LOADING
+# MODEL ARCHITECTURE
 # ============================================================
 
 def create_model():
-    """
-    Recreate the architecture used during training (VGG16-based transfer learning).
-    This ensures compatibility with the saved .keras weights.
-    """
-    base_model = VGG16(weights='imagenet', include_top=False, input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3))
+    base_model = VGG16(
+        weights=None,   # prevents downloading imagenet weights
+        include_top=False,
+        input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3)
+    )
+
     for layer in base_model.layers:
         layer.trainable = False
 
     model_final = Sequential([
         base_model,
         Flatten(),
-        Dense(512, activation='relu'),
+        Dense(512, activation="relu"),
         Dropout(0.5),
-        Dense(len(LABELS), activation='softmax')
+        Dense(len(LABELS), activation="softmax")
     ])
+
     return model_final
 
 
+# ============================================================
+# MODEL LOADING
+# ============================================================
+
 def load_model():
-    """
-    Load the trained model weights from the .keras file.
-    """
     global model
+
     if not os.path.exists(MODEL_PATH):
-        print(f"❌ Model file not found at {MODEL_PATH}")
+        print(f"❌ Model file not found: {MODEL_PATH}")
         return False
 
     try:
+        print("🚀 Loading AI model...")
+
         model = create_model()
         model.load_weights(MODEL_PATH)
-        print("✅ Model loaded successfully.")
+
+        print("✅ Model loaded successfully!")
         return True
+
     except Exception as e:
-        print(f"❌ Failed to load model: {e}")
+        print(f"❌ Model loading failed: {e}")
         return False
 
+
+# Load model when server starts
+load_model()
 
 # ============================================================
 # IMAGE PREPROCESSING
 # ============================================================
 
 def preprocess_image(image_data):
-    """
-    Preprocesses uploaded MRI image for model prediction.
-    Converts image bytes → OpenCV image → resized & normalized tensor.
-    """
+
     try:
         image_array = np.frombuffer(image_data, np.uint8)
         img = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
 
         if img is None:
-            raise ValueError("Invalid image format or corrupted file.")
+            raise ValueError("Invalid image file")
 
-        img_resized = cv2.resize(img, (IMAGE_SIZE, IMAGE_SIZE))
-        img_norm = img_resized / 255.0
-        img_expanded = np.expand_dims(img_norm, axis=0)
+        img = cv2.resize(img, (IMAGE_SIZE, IMAGE_SIZE))
+        img = img / 255.0
+        img = np.expand_dims(img, axis=0)
 
-        return img_expanded
+        return img
+
     except Exception as e:
-        raise ValueError(f"Image preprocessing failed: {e}")
+        raise ValueError(f"Image preprocessing error: {e}")
 
 
 # ============================================================
 # ROUTES
 # ============================================================
 
-@app.route('/')
+@app.route("/")
 def home():
-    """
-    Renders the main landing page with navigation.
-    """
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/information')
+
+@app.route("/information")
 def information():
-    """
-    Renders the brain tumor information page with statistics.
-    """
-    return render_template('information.html')
+    return render_template("information.html")
 
-@app.route('/statistics')
+
+@app.route("/statistics")
 def statistics():
-    """
-    Renders the global statistics page.
-    """
-    return render_template('statistics.html')
+    return render_template("statistics.html")
 
-@app.route('/experts')
+
+@app.route("/experts")
 def experts():
-    """
-    Renders the expert opinions page.
-    """
-    return render_template('experts.html')
+    return render_template("experts.html")
 
-@app.route('/model')
+
+@app.route("/model")
 def model_info():
-    """
-    Renders the AI model information page.
-    """
-    return render_template('model.html')
+    return render_template("model.html")
 
-@app.route('/predict')
+
+@app.route("/predict")
 def predict_page():
-    """
-    Renders the prediction page.
-    """
-    return render_template('predict.html')
+    return render_template("predict.html")
 
 
-@app.route('/privacy-policy')
+@app.route("/privacy-policy")
 def privacy_policy():
-    """
-    Renders the privacy policy page.
-    """
-    return render_template('privacy_policy.html')
+    return render_template("privacy_policy.html")
 
 
-@app.route('/terms-of-service')
+@app.route("/terms-of-service")
 def terms_of_service():
-    """
-    Renders the terms of service page.
-    """
-    return render_template('terms_of_service.html')
+    return render_template("terms_of_service.html")
 
 
-@app.route('/medical-disclaimer')
+@app.route("/medical-disclaimer")
 def medical_disclaimer():
-    """
-    Renders the medical disclaimer page.
-    """
-    return render_template('medical_disclaimer.html')
+    return render_template("medical_disclaimer.html")
 
 
-@app.route('/contact-us')
+@app.route("/contact-us")
 def contact_us():
-    """
-    Renders the contact page.
-    """
-    return render_template('contact_us.html')
+    return render_template("contact_us.html")
 
 
-@app.route('/documentation')
+@app.route("/documentation")
 def documentation():
-    """
-    Renders the documentation page.
-    """
-    return render_template('documentation.html')
+    return render_template("documentation.html")
 
 
-@app.route('/research-papers')
+@app.route("/research-papers")
 def research_papers():
-    """
-    Renders the research papers page.
-    """
-    return render_template('research_papers.html')
+    return render_template("research_papers.html")
 
 
-@app.route('/predict', methods=['POST'])
+# ============================================================
+# PREDICTION API
+# ============================================================
+
+@app.route("/predict", methods=["POST"])
 def predict():
-    """
-    Accepts an uploaded MRI image and returns a tumor prediction with confidence scores.
-    """
+
     if model is None:
-        return jsonify({"error": "Model not loaded. Please restart the server."}), 500
+        return jsonify({"error": "Model not loaded"}), 500
 
-    if 'file' not in request.files:
-        return jsonify({"error": "No file uploaded."}), 400
+    if "file" not in request.files:
+        return jsonify({"error": "No file uploaded"}), 400
 
-    file = request.files['file']
+    file = request.files["file"]
 
-    if file.filename == '':
-        return jsonify({"error": "Empty file name received."}), 400
+    if file.filename == "":
+        return jsonify({"error": "Empty file"}), 400
 
     try:
-        # Step 1: Read image bytes
-        contents = file.read()
+        image_bytes = file.read()
 
-        # Step 2: Preprocess image
-        processed_image = preprocess_image(contents)
+        processed_image = preprocess_image(image_bytes)
 
-        # Step 3: Make prediction
         predictions_raw = model.predict(processed_image)
+
         predicted_index = np.argmax(predictions_raw[0])
         predicted_label = LABELS_DICT[predicted_index]
+
         confidence = float(predictions_raw[0][predicted_index])
 
-        # Step 4: Prepare prediction dict with normalized label names
         predictions_dict = {}
-        for i, label in enumerate(LABELS):
-            # Convert label format from 'glioma_tumor' to 'glioma'
-            normalized_label = label.replace('_tumor', '')
-            predictions_dict[normalized_label] = float(predictions_raw[0][i])
 
-        # Normalize the predicted label too
-        normalized_predicted = predicted_label.replace('_tumor', '')
+        for i, label in enumerate(LABELS):
+            clean_label = label.replace("_tumor", "")
+            predictions_dict[clean_label] = float(predictions_raw[0][i])
+
+        final_prediction = predicted_label.replace("_tumor", "")
 
         result = {
-            "prediction": normalized_predicted,
+            "prediction": final_prediction,
             "confidence": confidence,
             "predictions": predictions_dict
         }
 
-        print(f"🧠 Prediction: {normalized_predicted} ({confidence*100:.2f}%)")
+        print(f"🧠 Prediction: {final_prediction} ({confidence*100:.2f}%)")
+
         return jsonify(result)
 
     except Exception as e:
         print(f"❌ Prediction error: {e}")
-        return jsonify({"error": f"Internal error: {e}"}), 500
+        return jsonify({"error": str(e)}), 500
 
 
 # ============================================================
-# SERVER STARTUP
+# SERVER START
 # ============================================================
 
-if __name__ == '__main__':
-    print("🚀 Initializing Brain Tumor Detection Flask Server...")
-    load_model()
-    app.run(host='0.0.0.0', port=8080, debug=True)
+if __name__ == "__main__":
+
+    port = int(os.environ.get("PORT", 10000))
+
+    print("🚀 NeuroScan AI server starting...")
+    app.run(host="0.0.0.0", port=port)
