@@ -37,25 +37,25 @@ model = None
 # MODEL ARCHITECTURE
 # ============================================================
 
-def create_model():
-    base_model = VGG16(
-        weights=None,   # prevents downloading imagenet weights
-        include_top=False,
-        input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3)
-    )
+# def create_model():
+#     base_model = VGG16(
+#         weights=None,   # prevents downloading imagenet weights
+#         include_top=False,
+#         input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3)
+#     )
 
-    for layer in base_model.layers:
-        layer.trainable = False
+#     for layer in base_model.layers:
+#         layer.trainable = False
 
-    model_final = Sequential([
-        base_model,
-        Flatten(),
-        Dense(512, activation="relu"),
-        Dropout(0.5),
-        Dense(len(LABELS), activation="softmax")
-    ])
+#     model_final = Sequential([
+#         base_model,
+#         Flatten(),
+#         Dense(512, activation="relu"),
+#         Dropout(0.5),
+#         Dense(len(LABELS), activation="softmax")
+#     ])
 
-    return model_final
+#     return model_final
 
 
 # ============================================================
@@ -72,8 +72,7 @@ def load_model():
     try:
         print("🚀 Loading AI model...")
 
-        model = create_model()
-        model.load_weights(MODEL_PATH)
+        model = tf.keras.models.load_model(MODEL_PATH)
 
         print("✅ Model loaded successfully!")
         return True
@@ -81,10 +80,6 @@ def load_model():
     except Exception as e:
         print(f"❌ Model loading failed: {e}")
         return False
-
-
-# Load model when server starts
-load_model()
 
 # ============================================================
 # IMAGE PREPROCESSING
