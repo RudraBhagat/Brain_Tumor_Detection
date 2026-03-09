@@ -186,33 +186,34 @@
             <p class="section-intro">See what types of images work best with our system</p>
             <div class="samples-grid">
                 <div class="sample-card">
-                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400" alt="Glioma Sample">
+                    <img src="{{ url_for('static', filename='images/glioma.jpeg') }}" alt="Glioma Sample 1">
                     <div class="sample-label">
                         <span class="sample-type">Glioma</span>
-                        <span class="sample-quality good">Good Quality</span>
+                        <span class="sample-quality good">Real MRI</span>
                     </div>
                 </div>
                 <div class="sample-card">
-                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400" alt="Meningioma Sample">
+                    <img src="{{ url_for('static', filename='images/menengioma.jpg') }}" alt="Meningioma Sample 1">
                     <div class="sample-label">
                         <span class="sample-type">Meningioma</span>
-                        <span class="sample-quality good">Good Quality</span>
+                        <span class="sample-quality good">Real MRI</span>
                     </div>
                 </div>
                 <div class="sample-card">
-                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=400" alt="Pituitary Sample">
+                    <img src="{{ url_for('static', filename='images/pituitary.jpg') }}" alt="Pituitary Sample 1">
                     <div class="sample-label">
                         <span class="sample-type">Pituitary</span>
-                        <span class="sample-quality good">Good Quality</span>
+                        <span class="sample-quality good">Real MRI</span>
                     </div>
                 </div>
                 <div class="sample-card">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Healthy Brain">
+                    <img src="{{ url_for('static', filename='images/notumor.jpg') }}" alt="No Tumor Sample 1">
                     <div class="sample-label">
                         <span class="sample-type">No Tumor</span>
-                        <span class="sample-quality good">Good Quality</span>
+                        <span class="sample-quality good">Real MRI</span>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -224,7 +225,7 @@
             <div class="faq-grid">
                 <div class="faq-item">
                     <h4><i class="fas fa-question-circle"></i> How accurate is the AI model?</h4>
-                    <p>Our model achieves 98.5% accuracy on validation datasets, trained on thousands of annotated brain MRI scans.</p>
+                        <p>Our model achieves 92.97% accuracy on validation datasets, trained on thousands of annotated brain MRI scans.</p>
                 </div>
                 <div class="faq-item">
                     <h4><i class="fas fa-question-circle"></i> What image formats are supported?</h4>
