@@ -1,18 +1,15 @@
-flask
-flask-cors
-tensorflow
-numpy
-opencv-python
 # Core Web Framework
 Flask==3.0.3
 Flask-Cors==4.0.1
+
 # Deep Learning & Machine Learning
-# UPGRADED: Use a modern, stable version for Python 3.11
+# Stable versions for Python 3.11 runtime
 tensorflow==2.20.0
-numpy==1.26.4 
+numpy==1.26.4
 
 # Image Processing
-opencv-python==4.9.0.80
+# Use headless build for cloud Linux containers (avoids libGL.so.1 errors)
+opencv-python-headless==4.9.0.80
 
-# Utility Libraries
+# Production WSGI server
 gunicorn==22.0.0

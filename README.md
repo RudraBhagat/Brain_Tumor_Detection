@@ -28,7 +28,7 @@ This project is intended for educational and research use.
 ## Tech Stack
 
 - Backend: Python, Flask, Flask-CORS
-- ML/AI: TensorFlow/Keras, VGG16, NumPy, OpenCV
+- ML/AI: TensorFlow/Keras, VGG16, NumPy, OpenCV (headless on cloud)
 - Frontend: HTML, CSS, JavaScript, Font Awesome
 
 ## Project Structure
@@ -115,6 +115,10 @@ python app.py
 ```
 
 Open: `http://localhost:8080`
+
+### Cloud Deployment Note
+
+If deployment logs show `ImportError: libGL.so.1`, ensure `opencv-python-headless` is installed (not `opencv-python`).
 
 ## Model Notes
 
