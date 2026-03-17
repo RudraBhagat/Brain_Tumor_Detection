@@ -368,6 +368,11 @@ function initPredictionPage() {
     }
 
     function analyzeImage() {
+        if (!selectedFile) {
+            showNotification('Please select an MRI image before analysis.', 'error');
+            return;
+        }
+
         const formData = new FormData();
         formData.append('file', selectedFile);
 
@@ -390,7 +395,13 @@ function initPredictionPage() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(async response => {
+            const data = await response.json();
+            if (!response.ok || data.error) {
+                throw new Error(data.error || 'Prediction request failed.');
+            }
+            return data;
+        })
         .then(data => {
             setTimeout(() => {
                 document.getElementById('step3').innerHTML = '<i class="fas fa-check-circle"></i> Complete';
@@ -404,7 +415,7 @@ function initPredictionPage() {
         .catch(error => {
             console.error('Error:', error);
             loadingOverlay.style.display = 'none';
-            showNotification('An error occurred during analysis. Please try again.', 'error');
+            showNotification(error.message || 'An error occurred during analysis. Please try again.', 'error');
         });
     }
 
@@ -417,7 +428,7 @@ function initPredictionPage() {
         const confidenceValue = document.getElementById('confidenceValue');
         const confidenceFill = document.getElementById('confidenceFill');
         
-        const prediction = data.prediction;
+        const prediction = normalizePredictionKey(data.prediction);
         const confidence = (data.confidence * 100).toFixed(1);
         
         // Set result text
@@ -452,8 +463,9 @@ function initPredictionPage() {
             'no': 'No Tumor'
         };
         
-        Object.keys(data.predictions).forEach(key => {
-            const value = (data.predictions[key] * 100).toFixed(1);
+        Object.keys(data.predictions).forEach(rawKey => {
+            const key = normalizePredictionKey(rawKey);
+            const value = (data.predictions[rawKey] * 100).toFixed(1);
             const item = document.createElement('div');
             item.className = 'probability-item';
             item.innerHTML = `
@@ -584,6 +596,12 @@ function initPredictionPage() {
         if (bytes < 1024) return bytes + ' B';
         else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
         else return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    function normalizePredictionKey(key) {
+        if (!key) return '';
+        if (key === 'no_tumor') return 'no';
+        return key.replace('_tumor', '');
     }
 }
 

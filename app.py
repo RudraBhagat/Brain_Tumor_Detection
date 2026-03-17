@@ -12,7 +12,8 @@ from tensorflow.keras.applications import VGG16
 # CONFIGURATION
 # ============================================================
 
-MODEL_PATH = "brain_tumor_detection_model.keras"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "brain_tumor_detection_model.keras")
 IMAGE_SIZE = 150
 
 LABELS = [
@@ -32,6 +33,7 @@ app = Flask(__name__, template_folder="templates", static_folder="static")
 CORS(app)
 
 model = None
+model_load_error = None
 
 # ============================================================
 # MODEL ARCHITECTURE
@@ -63,23 +65,33 @@ def create_model():
 # ============================================================
 
 def load_model():
-    global model
+    global model, model_load_error
 
     if not os.path.exists(MODEL_PATH):
-        print(f"❌ Model file not found: {MODEL_PATH}")
+        model_load_error = f"Model file not found: {MODEL_PATH}"
+        print(f"❌ {model_load_error}")
         return False
 
     try:
-        print("🚀 Loading AI model...")
+        print(f"🚀 Loading AI model from: {MODEL_PATH}")
 
-        model = create_model()
-        model.load_weights(MODEL_PATH)
+        # Prefer loading as a full .keras model first.
+        # If that fails (older/newer format mismatch), fall back to architecture + weights.
+        try:
+            model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+            print("✅ Model loaded as full Keras model!")
+        except Exception as full_model_error:
+            print(f"⚠️ Full model load failed, trying weights fallback: {full_model_error}")
+            model = create_model()
+            model.load_weights(MODEL_PATH)
+            print("✅ Model loaded using architecture + weights fallback!")
 
-        print("✅ Model loaded successfully!")
+        model_load_error = None
         return True
 
     except Exception as e:
-        print(f"❌ Model loading failed: {e}")
+        model_load_error = f"Model loading failed: {e}"
+        print(f"❌ {model_load_error}")
         return False
 
 
@@ -181,7 +193,7 @@ def research_papers():
 def predict():
 
     if model is None:
-        return jsonify({"error": "Model not loaded"}), 500
+        return jsonify({"error": model_load_error or "Model not loaded"}), 500
 
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
@@ -196,7 +208,7 @@ def predict():
 
         processed_image = preprocess_image(image_bytes)
 
-        predictions_raw = model.predict(processed_image)
+        predictions_raw = model.predict(processed_image, verbose=0)
 
         predicted_index = np.argmax(predictions_raw[0])
         predicted_label = LABELS_DICT[predicted_index]
