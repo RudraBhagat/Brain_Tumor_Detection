@@ -7,6 +7,7 @@ from flask_cors import CORS
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Flatten, Dense, Dropout
 from tensorflow.keras.applications import VGG16
+from model_download import ensure_model_exists
 
 # ============================================================
 # CONFIGURATION
@@ -34,6 +35,9 @@ CORS(app)
 
 model = None
 model_load_error = None
+
+# Ensure model file exists (download if needed on deployment)
+ensure_model_exists(MODEL_PATH)
 
 # ============================================================
 # MODEL ARCHITECTURE

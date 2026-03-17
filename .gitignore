@@ -1,9 +1,36 @@
-1. User photo upload
-2. Crop identification
-3. Deasis classification
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
 
-Use medical of bias
-Chemical composition unavailability
-Crop Life Cycle Management AI
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
 
-Give soing date in the CSV file.
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+brain_tumor_detection_model.keras
+*.keras
+*.h5
+*.pkl
+.env
+.env.local
+
+# Large files
+*.pth
+*.pt
+*.onnx
