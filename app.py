@@ -75,16 +75,11 @@ def load_model():
     try:
         print(f"🚀 Loading AI model from: {MODEL_PATH}")
 
-        # Prefer loading as a full .keras model first.
-        # If that fails (older/newer format mismatch), fall back to architecture + weights.
-        try:
-            model = tf.keras.models.load_model(MODEL_PATH, compile=False)
-            print("✅ Model loaded as full Keras model!")
-        except Exception as full_model_error:
-            print(f"⚠️ Full model load failed, trying weights fallback: {full_model_error}")
-            model = create_model()
-            model.load_weights(MODEL_PATH)
-            print("✅ Model loaded using architecture + weights fallback!")
+        # The trained artifact is used as weights with the known architecture.
+        # This avoids Keras version deserialization mismatches in cloud deploys.
+        model = create_model()
+        model.load_weights(MODEL_PATH)
+        print("✅ Model loaded successfully!")
 
         model_load_error = None
         return True
@@ -193,7 +188,9 @@ def research_papers():
 def predict():
 
     if model is None:
-        return jsonify({"error": model_load_error or "Model not loaded"}), 500
+        print("⚠️ Model is not ready during prediction. Retrying load...")
+        if not load_model():
+            return jsonify({"error": model_load_error or "Model not loaded"}), 500
 
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
@@ -236,6 +233,15 @@ def predict():
     except Exception as e:
         print(f"❌ Prediction error: {e}")
         return jsonify({"error": str(e)}), 500
+
+
+@app.route("/health/model")
+def model_health():
+    return jsonify({
+        "loaded": model is not None,
+        "error": model_load_error,
+        "model_path": MODEL_PATH
+    }), 200
 
 
 # ============================================================
