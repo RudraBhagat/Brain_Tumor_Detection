@@ -140,6 +140,10 @@ If the model file is missing, startup will report that the model could not be lo
 This software is an AI-assisted analysis tool and not a medical diagnosis system.
 Always consult qualified healthcare professionals for clinical decisions.
 
+## Live
+
+https://neuroscan-ai-zcnt.onrender.com/
+
 ## License
 
 MIT
